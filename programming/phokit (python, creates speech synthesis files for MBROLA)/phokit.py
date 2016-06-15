@@ -3,19 +3,21 @@
 
 class phokit(object):
     """
-    Instantiates an instance of phokit. The phokit object itself holds the list of tagged words, 
-    the segmental inventories, and non-default specifications after the stim list and spec files 
-    have been uploaded with the loadFiles() method. The consonant and vowel durations default to 
-    100 and can be modified with the setDefault() method.
+    Instantiates an instance of phokit. 
+    
+    The phokit object itself holds the list of tagged words, the segmental inventories, and 
+    non-default specifications after the stim list and spec files have been uploaded with 
+    the loadFiles() method. The consonant and vowel durations default to 100 and can be 
+    modified with the setDefault() method.
     
     Attributes:
-    wordlist (list): Stores each line of the stim list as an item.
-    specs (dict): Holds the spec file key-value pairs.
-    durC (int): The default consonant length in milliseconds. The default is 100.
-    durV (int): The default vowel length in milliseconds. The default is 100.
-    listC (list): A list of the consonants in the spec file.
-    listV (list): A list of the vowels in the spec file.
-    counter (int): Used to assign a unique numerical value in file names.
+        wordlist (list): Stores each line of the stim list as an item.
+        specs (dict): Holds the spec file key-value pairs.
+        durC (int): The default consonant length in milliseconds. The default is 100.
+        durV (int): The default vowel length in milliseconds. The default is 100.
+        listC (list): A list of the consonants in the spec file.
+        listV (list): A list of the vowels in the spec file.
+        counter (int): Used to assign a unique numerical value in file names.
     
     """
     def __init__(self):
@@ -33,8 +35,8 @@ class phokit(object):
         Loads the stim list and spec file into a phokit instance.
         
         Arg:
-        wordFile (file): the stim list, a .txt file 
-        specificationFile (file): the spec file, a .txt file
+            wordFile (file): the stim list, a .txt file 
+            specificationFile (file): the spec file, a .txt file
         
         """
         # Opens the word list file and reads in the lines. Each line of text becomes one item in a list called wordFile_lines.
@@ -67,15 +69,15 @@ class phokit(object):
         Changes the default consonant and vowel durations from 100 to the desired values.
         
         Arg:
-        cduration (int): the new consonant duration in milliseconds 
-        vduration (int): the new vowel duration in milliseconds
+            cduration (int): the new consonant duration in milliseconds 
+            vduration (int): the new vowel duration in milliseconds
         
-        Ex: 
-        >>> print tomsvoice.durC, tomsvoice.durV
-        100, 100
-        >>> tomsvoice.setDefault(75, 80)
-        >>> print tomsvoice.durC, tomsvoice.durV
-        75, 80
+        Example: 
+            >>> print tomsvoice.durC, tomsvoice.durV
+            100, 100
+            >>> tomsvoice.setDefault(75, 80)
+            >>> print tomsvoice.durC, tomsvoice.durV
+            75, 80
         
         """
         self.durC = cduration
@@ -86,11 +88,11 @@ class phokit(object):
         Makes a .pho file based on the string provided.
         
         Arg:
-        tagged_word (str): the contents of the desired .pho file
+            tagged_word (str): the contents of the desired .pho file
         
-        Ex:
-        >>> tomsvoice.make(’p a<dur:200> t a’)
-        >>>
+        Example:
+            >>> tomsvoice.make(’p a<dur:200> t a’)
+            >>>
         
         """
         # Import the re module
@@ -164,12 +166,12 @@ class phokit(object):
         values are not displayed.
         
         Arg:
-        tagged_word (str): the .pho file content to inspect
+            tagged_word (str): the .pho file content to inspect
         
-        Ex:
-        >>> phokit.inspect('p a<dur:150> t a')
-        >>> word:    p    a    t    a
-        >>> dur:          150
+        Example:
+            >>> phokit.inspect('p a<dur:150> t a')
+            >>> word:    p    a    t    a
+            >>> dur:          150
         
         """ 
         

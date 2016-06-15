@@ -1,2 +1,2 @@
 # portfolio
-Professional writing, presentations, and code
+writings, presentations, and code
